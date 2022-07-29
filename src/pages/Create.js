@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import './Create.css';
 import Form from '../components/form.js'
 import axios from 'axios';
