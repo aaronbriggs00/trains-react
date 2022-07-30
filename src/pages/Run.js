@@ -25,7 +25,7 @@ export default function Run() {
   }
 
   function handleDelete() {
-    axios.delete(`http://localhost:3000/api/runs/${id}`)
+    axios.delete(`https://peaceful-river-89424.herokuapp.com/api/runs/${id}`)
       .then(response => {
         navigate('/runs');
       });
@@ -34,7 +34,7 @@ export default function Run() {
   useEffect(() => {
     const fetchData = async () => {
         const response = await axios(
-            `http://localhost:3000/api/runs/${id}`,
+            `https://peaceful-river-89424.herokuapp.com/api/runs/${id}`,
         );
         const run = response.data.run
         setData({
@@ -59,7 +59,7 @@ export default function Run() {
         operator_id: data.operatorId
       }
 
-      axios.patch(`http://localhost:3000/api/runs/${id}`, run)
+      axios.patch(`https://peaceful-river-89424.herokuapp.com/api/runs/${id}`, run)
       .then(response => {
         console.log(response);
       });

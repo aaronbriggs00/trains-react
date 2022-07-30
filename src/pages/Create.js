@@ -34,7 +34,7 @@ export default function Create() {
         operator_id: data.operatorId
       }
 
-      axios.post(`http://localhost:3000/api/runs`, run)
+      axios.post(`https://peaceful-river-89424.herokuapp.com/api/runs`, run)
       .then(response => {
         console.log(response);
         navigate('/runs')

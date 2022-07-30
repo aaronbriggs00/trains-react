@@ -11,7 +11,7 @@ export default function Table() {
     useEffect(() => {
         const fetchData = async () => {
             const response = await axios(
-                'http://localhost:3000/api/runs',
+                'https://peaceful-river-89424.herokuapp.com/api/runs',
             );
             setData(response.data);
         };
@@ -22,7 +22,7 @@ export default function Table() {
     useEffect(() => {
         const fetchData = async () => {
             const response = await axios(
-                `http://localhost:3000/api/runs?sort=${queryParameters.sort}&order=${queryParameters.order}&page=${queryParameters.page}`,
+                `https://peaceful-river-89424.herokuapp.com/api/runs?sort=${queryParameters.sort}&order=${queryParameters.order}&page=${queryParameters.page}`,
             );
             setData(response.data);
         };
