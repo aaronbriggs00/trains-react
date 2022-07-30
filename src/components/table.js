@@ -22,7 +22,7 @@ export default function Table() {
     useEffect(() => {
         const fetchData = async () => {
             const response = await axios(
-                `https://peaceful-river-89424.herokuapp.com/api/runs?sort=${queryParameters.sort}&order=${queryParameters.order}&page=${queryParameters.page}`,
+                `https://peaceful-river-89424.herokuapp.com/api/runs?sort_by=${queryParameters.sort}&order=${queryParameters.order}&page=${queryParameters.page}`,
             );
             setData(response.data);
         };
@@ -40,15 +40,33 @@ export default function Table() {
 
     }
 
+    function setSearch(sort) {
+        if (queryParameters.sort === sort) {
+            let newOrder = queryParameters.order === 'asc' ? 'desc' : 'asc'
+            setQueryParameters({
+                sort: queryParameters.sort,
+                order: newOrder,
+                page: queryParameters.page
+            }); 
+        } else {
+            setQueryParameters({
+                sort: sort,
+                order: queryParameters.order,
+                page: queryParameters.page
+            }); 
+        }
+
+    }
+
     return (
         <div>
             <table className="table">
                 <thead>
                     <tr>
-                        <th>Train Line</th>
-                        <th>Route</th>
-                        <th>Run Number</th>
-                        <th>Operator ID</th>
+                        <th onClick={() => setSearch('line')}>Train Line</th>
+                        <th onClick={() => setSearch('route')}>Route</th>
+                        <th onClick={() => setSearch('run_number')}>Run Number</th>
+                        <th onClick={() => setSearch('operator_id')}>Operator ID</th>
                         <th></th>
                     </tr>
                 </thead>
